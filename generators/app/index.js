@@ -62,12 +62,13 @@ module.exports = yeoman.Base.extend({
         this.templatePath('_app/_app.js'),
         this.destinationPath('app/app.js')
       );
+      
       this.composeWith('reactredux:reducer',{
         options: {
           "top" : true
         }
       });
-      //this.composeWith('reactredux:store');
+      this.composeWith('reactredux:store');
 
 
     },
