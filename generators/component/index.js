@@ -10,6 +10,7 @@ module.exports = yeoman.Base.extend({
   constructor: function () {
     yeoman.Base.apply(this, arguments);
 
+    this.argument('componentNamePathArgument', {type:String, required: false});
     this.option('stateless');
     
   },
@@ -18,26 +19,36 @@ module.exports = yeoman.Base.extend({
 
 
     var done = this.async();
-    this.prompt({
+
+    if (this.componentNamePathArgument) {
+      this.props = {componentNamePath: this.componentNamePathArgument}
+      done();
+
+    } else {
+      this.prompt({
 
         type: 'input',
         name: 'componentNamePath',
         message: 'Enter the component (./components/) ',
         default : this.appname
 
-    }).then ( (answers) => {
+      }).then ( (answers) => {
 
-        this.props = answers;
-        done();
+          this.props = answers;
+          done();
 
-    });
+      });
+
+
+    }
+    
    
 
   },
 
   writing : function () {
-  	let componentNamePath = util.fixComponentPathForCapitalizeLetter(this.props.componentNamePath);
-  	let componentName = componentNamePath.split('/').pop() + 'Component';
+  	let componentNamePath = util.fixPathForCapitalizeLetter(this.props.componentNamePath)+'Component';
+  	let componentName = componentNamePath.split('/').pop();
   	if (this.option('stateless')) {
 
   		this.fs.copyTpl(
