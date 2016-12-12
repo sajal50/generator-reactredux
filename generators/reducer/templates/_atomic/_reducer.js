@@ -10,4 +10,4 @@ const <%= reducerName %> = (state = {} , action) => {
 
 };
 
-export default userInfo;
+export default <%=reducerName%>;
