@@ -1,4 +1,4 @@
-import React from ‘react’;
+import React from 'react';
 import CSSModules from 'react-css-modules';
 import <%=componentName%>Style from './assets/<%=componentName%>.scss';
 
