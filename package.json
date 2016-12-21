@@ -1,7 +1,7 @@
 {
   "name": "generator-reactredux",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.0.9",
+  "description": "This is an opiniated react-redux generator",
   "homepage": "",
   "author": {
     "name": "Sajal Khandelwal",
