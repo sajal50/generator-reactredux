@@ -50,13 +50,30 @@ module.exports = yeoman.Base.extend({
 
   writing : function () {
 
-    this.fs.copyTpl(
+    let reducerName = this.props.reducerNamePath.split('/').pop();
+
+    if (this.options.top) {
+
+      this.fs.copyTpl(
         
         this.templatePath('_atomic/_reducer.js'),
-        this.destinationPath(`app/reducers/${this.props.reducerNamePath}.js`), {
+        this.destinationPath(`app/reducers/${reducerName}.js`), {
           reducerName: this.props.reducerNamePath.split('/').pop()
         }
       );
+
+
+    } else {
+      this.fs.copyTpl(
+        
+        this.templatePath('_atomic/_reducer.js'),
+        this.destinationPath(`app/reducers/${this.props.reducerNamePath}/${reducerName}.js`), {
+          reducerName: this.props.reducerNamePath.split('/').pop()
+        }
+      );
+
+    }
+    
 
 
   }
