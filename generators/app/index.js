@@ -71,6 +71,19 @@ module.exports = yeoman.Base.extend({
       this.composeWith('reactredux:store');
 
 
+      this.fs.copy(
+        
+        this.templatePath('._gitignore'),
+        this.destinationPath('.gitignore')
+      );
+
+      this.fs.copy(
+        
+        this.templatePath('_public/._gitignore'),
+        this.destinationPath('public/.gitignore')
+      );
+
+
     },
     install: function() {
       
