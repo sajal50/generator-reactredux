@@ -49,7 +49,7 @@ module.exports = yeoman.Base.extend({
   writing : function () {
   	let componentNamePath = util.fixPathForCapitalizeLetter(this.props.componentNamePath)+'Component';
   	let componentName = componentNamePath.split('/').pop();
-  	if (this.option('stateless')) {
+  	if (this.options.stateless) {
 
   		this.fs.copyTpl(
         

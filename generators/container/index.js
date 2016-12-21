@@ -60,7 +60,7 @@ module.exports = yeoman.Base.extend({
 
         }
     );
-
+    this.log(util.fixPathForCapitalizeLetter(this.props.containerNamePath));
     this.composeWith('reactredux:component',{
         args : [this.props.containerNamePath]
     });
