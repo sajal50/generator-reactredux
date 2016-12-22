@@ -9,11 +9,51 @@ npm install -g yo
 npm install -g generator-reactredux
 ```
 
-Then generate your new project:
+Then generate your new project. First go inside the folder where you would want the project to be set up, and then run:
 
 ```bash
 yo reactredux
 ```
+Follow the onscreen instructions. At then end, you would get a project structure as follows - 
+```
+app
+│   └───store
+│       │   store.js
+│   └───reducers
+│       │   topReducer.js
+│   app.js
+
+└───public
+│   index.html
+
+webpack.config.js
+package.json
+
+```
+## Component
+
+To create a new React component 
+```
+yo reactredux:component
+```
+Follow the onscreen instructions. This will create a necessary assets folder with a stylesheet file already included. For stateless component add `--stateless`.
+
+## Container
+
+To create a new React container 
+```
+yo reactredux:container
+```
+Follow the onscreen instructions. This will also create a corresponding component.
+
+## Reducer
+
+To create a new Redux reducer
+```
+yo reactredux:reducer
+```
+Follow the onscreen instructions.
+
 
 ## Getting To Know Yeoman
 
@@ -25,5 +65,3 @@ yo reactredux
 ## License
 
 MIT © [Sajal Khandelwal]()
-
-
